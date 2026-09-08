@@ -1,0 +1,76 @@
+.services-section {
+  padding: var(--space-8) var(--space-6);
+  background-color: var(--color-surface-sunken);
+  font-family: var(--font-sans);
+}
+
+.services-section h2.here {
+  text-align: center;
+  margin-bottom: var(--space-7);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.services-section h2.here span {
+  background: none;
+  color: var(--color-primary);
+  font-weight: 800;
+  text-shadow: none;
+}
+
+.services-section .main-servicess {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-6);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.services-section .main-inner-servicess {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  width: calc(33.333% - 24px);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.services-section .main-inner-servicess:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.services-section .services-img img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.services-section .servicess-content {
+  padding: var(--space-5);
+}
+
+.services-section .servicess-content h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  text-align: center;
+  margin-bottom: 0;
+}
+
+@media (max-width: 1200px) {
+  .services-section .main-inner-servicess {
+    width: calc(50% - 24px);
+  }
+}
+
+@media (max-width: 768px) {
+  .services-section .main-inner-servicess {
+    width: 100%;
+  }
+}

@@ -1,0 +1,487 @@
+.bodyHome {
+  background-color: var(--color-surface);
+  font-family: var(--font-sans);
+}
+
+.bodyHome img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Hero heading directly under the banner carousel */
+.bodyHome .home-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-9) var(--space-5);
+  background-color: var(--color-surface);
+  text-align: center;
+}
+
+.bodyHome .home-container h1 {
+  font-family: var(--font-sans);
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--color-text);
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+.bodyHome .home-container span {
+  font-family: var(--font-sans);
+  font-size: inherit;
+  color: var(--color-primary);
+  background: none;
+  margin: 0;
+  transform: none;
+}
+
+.bodyHome .home-container span:hover {
+  background: none;
+}
+
+.bodyHome .home-container p {
+  margin-top: var(--space-3);
+  font-size: 1.05rem;
+  font-family: var(--font-sans);
+  color: var(--color-text-secondary);
+  max-width: 640px;
+}
+
+.bodyHome .home-container strong {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.bodyHome hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0;
+}
+
+/* Feature cards */
+.bodyHome .body-card {
+  width: 100%;
+  padding: var(--space-8) var(--space-6);
+  background-color: var(--color-surface-sunken);
+}
+
+.bodyHome .container-home {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.bodyHome .card-home {
+  position: relative;
+  flex: 1 1 240px;
+  max-width: 280px;
+  height: 320px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.bodyHome .card-home:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.bodyHome .card-home .imgbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.bodyHome .card-home .imgbox img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  transition: transform 0.5s ease;
+}
+
+.bodyHome .card-home:hover .imgbox img {
+  transform: scale(1.05);
+}
+
+.bodyHome .card-home .content-home {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--space-5);
+  background: linear-gradient(180deg, rgba(14, 42, 64, 0) 0%, rgba(14, 42, 64, 0.92) 65%);
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.bodyHome .content-home h2 {
+  text-align: left;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: #fff;
+}
+
+.bodyHome .content-home p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.4em;
+  color: #dfe8f0;
+  text-align: left;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.35s ease;
+}
+
+.bodyHome .card-home:hover .content-home p {
+  max-height: 160px;
+  opacity: 1;
+  margin-top: var(--space-2);
+}
+
+/* CTA buttons */
+.bodyHome .all-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-5);
+  padding: var(--space-8) var(--space-5);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.bodyHome .container-button {
+  margin: 0;
+  padding: 0;
+}
+
+.bodyHome .button-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  height: 56px;
+  width: 220px;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: none;
+  letter-spacing: 0;
+  box-sizing: border-box;
+  transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.bodyHome .button-1 strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.bodyHome .button-1:hover {
+  background-color: var(--color-primary-dark);
+  box-shadow: var(--shadow-md);
+}
+
+/* Intro / mission heading */
+.bodyHome .heading {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin: var(--space-8) auto;
+  padding: 0 var(--space-5);
+}
+
+.bodyHome .heading h1 {
+  font-size: 1.9rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.bodyHome .heading h1::after {
+  display: none;
+}
+
+.bodyHome .heading p {
+  font-size: 1.05rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
+/* About / mission section */
+.bodyHome .coontainer {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5);
+}
+
+.bodyHome .about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-7);
+}
+
+.bodyHome .about-image-patient {
+  flex: 1 1 320px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.bodyHome .about-image-patient img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+  border-radius: var(--radius-lg);
+  transition: transform 0.5s ease;
+}
+
+.bodyHome .about-image-patient:hover img {
+  transform: scale(1.04);
+}
+
+.bodyHome .about-coontent {
+  flex: 1 1 360px;
+}
+
+.bodyHome .about-coontent h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+  color: var(--color-text);
+}
+
+.bodyHome .about-coontent p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+/* Services teaser */
+.bodyHome .servicess {
+  padding: var(--space-8) var(--space-6);
+  width: 100%;
+  background-color: var(--color-surface-sunken);
+}
+
+.bodyHome .service-heading h3 {
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-7);
+}
+
+.bodyHome .service-heading h3::after {
+  display: none;
+}
+
+.bodyHome .main-servicess {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bodyHome .main-inner-servicess {
+  flex: 1 1 280px;
+  max-width: 300px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+  text-align: center;
+  overflow: hidden;
+}
+
+.bodyHome .main-inner-servicess:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.bodyHome .main-inner-servicess .services-img img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.bodyHome .servicess-content {
+  padding: var(--space-5);
+}
+
+.bodyHome .servicess-content h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+  text-transform: none;
+  text-shadow: none;
+}
+
+.bodyHome .read-more-button {
+  text-align: center;
+  margin-top: var(--space-7);
+}
+
+/* Doctor bios lives in its own stylesheet but the section wrapper is here */
+.bodyHome .doctor-bios {
+  background-color: var(--color-surface);
+}
+
+.bodyHome .doctor-bios h2 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+/* Working hours */
+.bodyHome .working-hours-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-7);
+  padding: var(--space-8) var(--space-6);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bodyHome .working-hours-info {
+  flex: 1 1 320px;
+}
+
+.bodyHome .working-hours-info h2 {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-5);
+  color: var(--color-text);
+  padding: 0;
+  background-color: transparent;
+  display: block;
+}
+
+.bodyHome .working-hours-info h2:hover {
+  transform: none;
+}
+
+.bodyHome .working-hours-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.bodyHome .working-hours-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-5);
+  font-size: 0.92rem;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.bodyHome .working-hours-list li:last-child {
+  border-bottom: none;
+}
+
+.bodyHome .working-hours-list li span {
+  font-weight: 700;
+  color: var(--color-text);
+  font-size: inherit;
+}
+
+.bodyHome .photo {
+  flex: 1 1 320px;
+}
+
+.bodyHome .photo img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin: 0;
+}
+
+/* Map section */
+.bodyHome > center {
+  display: block;
+  padding-top: var(--space-7);
+}
+
+.bodyHome > center h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.bodyHome > center h3::after {
+  display: none;
+}
+
+.bodyHome iframe {
+  max-width: 1100px;
+  margin: 0 auto var(--space-8);
+  display: block;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+@media screen and (max-width: 768px) {
+  .bodyHome .home-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .bodyHome .container-home {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bodyHome .card-home {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .bodyHome .all-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bodyHome .button-1 {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .bodyHome .working-hours-section {
+    padding: var(--space-7) var(--space-4);
+  }
+}

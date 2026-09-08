@@ -1,0 +1,77 @@
+.footer {
+  background-color: #0e2a40;
+  background-image: linear-gradient(180deg, #123a56 0%, #0c2436 100%);
+  color: #cdd9e4;
+  padding: var(--space-9) 0 var(--space-6);
+}
+
+.footer-logo {
+  max-width: 120px;
+  margin-bottom: var(--space-4);
+  border-radius: var(--radius-sm);
+}
+
+.footer-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-4);
+  color: #fff;
+}
+
+.footer-link {
+  color: #a9bccd;
+  text-decoration: none;
+  display: block;
+  margin-bottom: var(--space-3);
+  font-size: 0.9rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+.footer p {
+  font-size: 0.9rem;
+  color: #a9bccd;
+}
+
+.social-icons {
+  margin-top: var(--space-6);
+  text-align: right;
+}
+
+.social-icon {
+  color: #cdd9e4;
+  font-size: 1.3rem;
+  margin-left: var(--space-4);
+  transition: color var(--transition-fast);
+}
+
+.social-icon:hover {
+  color: #ffffff;
+}
+
+.footer .btn-danger {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  padding: 0.6rem 1.3rem;
+  font-weight: 600;
+  text-transform: none;
+  border-radius: var(--radius-sm);
+}
+
+.footer .btn-danger:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.footer-copyright {
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.82rem;
+  color: #7f97ac;
+}

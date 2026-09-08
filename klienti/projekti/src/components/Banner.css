@@ -1,0 +1,29 @@
+.fixed-height {
+  height: calc(100vh - 260px);
+  min-height: 360px;
+  max-height: 560px;
+  width: 100%;
+  object-fit: cover;
+  filter: brightness(0.72);
+}
+
+.caption {
+  font-size: 1.1rem;
+  background: rgba(14, 42, 64, 0.55);
+  backdrop-filter: blur(2px);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  bottom: 2.5rem;
+}
+
+.caption h3 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  margin-bottom: var(--space-2);
+}
+
+.caption p {
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.95;
+}

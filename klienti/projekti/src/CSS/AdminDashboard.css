@@ -1,0 +1,219 @@
+.admin-dash__title {
+  text-align: left !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: var(--color-text) !important;
+  margin-bottom: var(--space-6) !important;
+  padding-bottom: 0 !important;
+  border-bottom: none !important;
+}
+
+.admin-dash__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-card__label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+}
+
+.stat-card__value {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.stat-card__sublabel {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+
+.stat-card--skeleton {
+  min-height: 92px;
+  background: linear-gradient(90deg, var(--color-surface-sunken) 25%, var(--color-bg-alt) 37%, var(--color-surface-sunken) 63%);
+  background-size: 400% 100%;
+  animation: dash-shimmer 1.4s ease infinite;
+}
+
+.chart-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-5);
+  margin-bottom: var(--space-5);
+}
+
+.chart-card--wide {
+  width: 100%;
+}
+
+.chart-card__title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+
+.chart-card--skeleton {
+  min-height: 260px;
+  background: linear-gradient(90deg, var(--color-surface-sunken) 25%, var(--color-bg-alt) 37%, var(--color-surface-sunken) 63%);
+  background-size: 400% 100%;
+  animation: dash-shimmer 1.4s ease infinite;
+}
+
+@keyframes dash-shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+.status-breakdown__list {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+.status-breakdown__list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.status-breakdown__dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.admin-dash__bottom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--space-5);
+}
+
+.admin-dash__bottom-grid .chart-card {
+  margin-bottom: 0;
+}
+
+.upcoming-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.upcoming-list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-sunken);
+}
+
+.upcoming-list__main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.upcoming-list__patient {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.upcoming-list__doctor {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.upcoming-list__when {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.admin-dash__link {
+  display: inline-block;
+  margin-top: var(--space-4);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.admin-dash__link:hover {
+  text-decoration: underline;
+}
+
+.demographics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.demographics__col {
+  display: flex;
+  flex-direction: column;
+}
+
+.demographics__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .demographics {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .admin-dash__stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}

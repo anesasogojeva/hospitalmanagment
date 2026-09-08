@@ -1,0 +1,105 @@
+.dt-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.dt-toolbar__search {
+  flex: 1 1 260px;
+  max-width: 340px;
+}
+
+.dt-toolbar__search input {
+  width: 100%;
+}
+
+.dt-toolbar__filter {
+  min-width: 180px;
+}
+
+.dt-state {
+  padding: var(--space-7) var(--space-5);
+  text-align: center;
+  color: var(--color-text-secondary);
+  background-color: var(--color-surface-sunken);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--color-border-strong);
+}
+
+.dt-state--error {
+  color: var(--color-danger);
+  background-color: var(--color-danger-bg);
+  border-color: var(--color-danger-border);
+}
+
+.dt-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.dt-pagination__summary {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.dt-pagination__controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.dt-pagination__btn {
+  min-width: 36px;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--color-border-strong);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.dt-pagination__btn:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.dt-pagination__btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.dt-pagination__btn--active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.dt-pagination__ellipsis {
+  padding: 0 4px;
+  color: var(--color-text-muted);
+}
+
+.dt-pagination__page-size {
+  max-width: 130px;
+}
+
+@media (max-width: 640px) {
+  .dt-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .dt-toolbar__search,
+  .dt-toolbar__filter {
+    max-width: none;
+  }
+}

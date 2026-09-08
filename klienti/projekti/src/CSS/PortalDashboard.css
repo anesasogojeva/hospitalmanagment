@@ -1,0 +1,97 @@
+/* Shared shell for the patient & doctor self-service dashboards.
+   These pages render their own public Navbar above this shell. */
+
+.portal-shell {
+  display: flex;
+  min-height: calc(100vh - var(--topbar-height));
+  background-color: var(--color-bg);
+}
+
+.portal-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background-color: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  padding: var(--space-6) var(--space-4);
+}
+
+.portal-sidebar .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.65rem var(--space-4);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.portal-sidebar .nav-link:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.portal-sidebar .nav-link.portal-sidebar__link--active {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.portal-content {
+  flex: 1;
+  padding: var(--space-7) var(--space-7) var(--space-9);
+  min-width: 0;
+}
+
+.portal-content h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.doctor-profile {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.doctor-profile__photo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.doctor-profile__details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--space-4);
+  row-gap: var(--space-2);
+  margin: 0;
+}
+
+.doctor-profile__details dt {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+}
+
+.doctor-profile__details dd {
+  margin: 0;
+  color: var(--color-text);
+}
+
+@media (max-width: 900px) {
+  .portal-shell {
+    flex-direction: column;
+  }
+  .portal-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+}

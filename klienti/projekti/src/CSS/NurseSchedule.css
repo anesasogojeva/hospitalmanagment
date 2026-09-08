@@ -1,0 +1,53 @@
+.nurse-schedule-table th,
+.nurse-schedule-table td {
+  vertical-align: top;
+}
+
+.nurse-schedule-table__day {
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.nurse-schedule-cell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 200px;
+}
+
+.nurse-schedule-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  background-color: var(--color-surface-sunken);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+}
+
+.nurse-schedule-entry__info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.nurse-schedule-entry__name {
+  font-weight: 700;
+  font-size: 0.88rem;
+}
+
+.nurse-schedule-entry__time {
+  font-size: 0.76rem;
+  color: var(--color-text-secondary);
+}
+
+.nurse-schedule-entry__actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.nurse-schedule-cell__add {
+  align-self: flex-start;
+}

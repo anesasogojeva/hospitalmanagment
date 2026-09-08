@@ -1,0 +1,214 @@
+/* ==========================================================================
+   Admin shell — left sidebar navigation used on every CRUD page, plus the
+   content wrapper that sits next to it (see App.js RouteRender).
+   ========================================================================== */
+
+.admin-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background-color: #0e2a40;
+  background-image: linear-gradient(180deg, #123a56 0%, #0c2436 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  box-shadow: var(--shadow-lg);
+}
+
+.admin-sidebar__brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-6) var(--space-5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.admin-sidebar__brand-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: #fff;
+}
+
+.admin-sidebar__brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-teal));
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.admin-sidebar__brand-text {
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+}
+
+.admin-sidebar__close {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #cdd9e4;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.admin-sidebar__nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-5) var(--space-4);
+}
+
+.admin-sidebar__section-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #7f97ac;
+  padding: 0 var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.admin-sidebar__list + .admin-sidebar__section-label {
+  margin-top: var(--space-5);
+}
+
+.admin-sidebar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admin-sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0.65rem var(--space-3);
+  border-radius: var(--radius-sm);
+  color: #cdd9e4;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.admin-sidebar__link:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.admin-sidebar__link--active {
+  background-color: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+.admin-sidebar__link--active:hover {
+  background-color: var(--color-primary);
+}
+
+.admin-sidebar__icon {
+  width: 16px;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+.admin-sidebar__footer {
+  padding: var(--space-4);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.admin-sidebar__link--muted {
+  color: #93a7b8;
+  font-size: 0.85rem;
+}
+
+.admin-sidebar__mobile-toggle {
+  display: none;
+  position: fixed;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: 1001;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+}
+
+.admin-sidebar__scrim {
+  display: none;
+}
+
+/* Content area sitting next to the fixed sidebar */
+.admin-shell {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
+.admin-shell__content {
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  padding: var(--space-7) var(--space-7) var(--space-9);
+}
+
+.admin-shell__content > h1 {
+  text-align: left !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: var(--color-text) !important;
+  margin-bottom: var(--space-6) !important;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media screen and (max-width: 992px) {
+  .admin-sidebar {
+    transform: translateX(-100%);
+    transition: transform var(--transition-base);
+  }
+
+  .admin-sidebar--open {
+    transform: translateX(0);
+  }
+
+  .admin-sidebar__close {
+    display: block;
+  }
+
+  .admin-sidebar__mobile-toggle {
+    display: flex;
+  }
+
+  .admin-sidebar__scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(12, 24, 36, 0.45);
+    z-index: 999;
+  }
+
+  .admin-shell__content {
+    margin-left: 0;
+    padding: var(--space-9) var(--space-4) var(--space-7);
+  }
+}

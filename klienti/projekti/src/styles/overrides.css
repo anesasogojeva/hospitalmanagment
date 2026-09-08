@@ -1,0 +1,344 @@
+/* ==========================================================================
+   HMS Design System — Global Overrides
+   Retheme the Bootstrap / react-bootstrap primitives already used across
+   every CRUD + dashboard page so the whole app reads as one consistent
+   product, without touching any component logic.
+   This file is imported last in src/index.js on purpose: several legacy
+   page stylesheets declare bare, unscoped selectors (h1, h2, span, ...),
+   and loading last lets these rules win the cascade for shared elements.
+   ========================================================================== */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+a {
+  color: var(--color-primary);
+}
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+hr {
+  border-color: var(--color-border);
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------- */
+/* Buttons                                                                */
+/* --------------------------------------------------------------------- */
+
+.btn {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.1px;
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 1.1rem;
+  box-shadow: none;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast),
+    color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.btn:focus,
+.btn.focus {
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.btn-success {
+  background-color: var(--color-teal);
+  border-color: var(--color-teal);
+}
+.btn-success:hover,
+.btn-success:focus {
+  background-color: var(--color-teal-dark);
+  border-color: var(--color-teal-dark);
+}
+
+.btn-outline-success {
+  color: var(--color-teal);
+  border-color: var(--color-teal);
+  background-color: transparent;
+}
+.btn-outline-success:hover,
+.btn-outline-success:focus {
+  background-color: var(--color-teal);
+  border-color: var(--color-teal);
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+.btn-danger:hover,
+.btn-danger:focus {
+  background-color: #a52c2c;
+  border-color: #a52c2c;
+}
+
+.btn-secondary {
+  background-color: var(--color-surface);
+  border-color: var(--color-border-strong);
+  color: var(--color-text-secondary);
+}
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: var(--color-bg-alt);
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.btn-outline-light {
+  color: var(--color-danger);
+  border-color: var(--color-danger-border);
+  background-color: transparent;
+}
+.btn-outline-light:hover,
+.btn-outline-light:focus {
+  background-color: var(--color-danger-bg);
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.btn-outline-secondary {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background-color: transparent;
+}
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn-info {
+  background-color: var(--color-info);
+  border-color: var(--color-info);
+  color: #fff;
+}
+.btn-info:hover,
+.btn-info:focus {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: #fff;
+}
+
+/* Table row action buttons sit tighter together */
+td .btn + .btn {
+  margin-left: var(--space-2);
+}
+
+/* --------------------------------------------------------------------- */
+/* Tables                                                                 */
+/* --------------------------------------------------------------------- */
+
+.table {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  --bs-table-bg: var(--color-surface);
+  --bs-table-striped-bg: var(--color-surface-sunken);
+  --bs-table-hover-bg: var(--color-primary-light);
+  --bs-table-color: var(--color-text);
+  --bs-table-border-color: var(--color-border);
+  font-size: 0.92rem;
+}
+
+.table.table-dark,
+.table[variant='dark'] {
+  --bs-table-bg: var(--color-surface);
+  --bs-table-color: var(--color-text);
+  --bs-table-striped-bg: var(--color-surface-sunken);
+  --bs-table-striped-color: var(--color-text);
+  --bs-table-hover-bg: var(--color-primary-light);
+  --bs-table-hover-color: var(--color-text);
+  --bs-table-border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.table thead th {
+  background-color: var(--color-surface-sunken);
+  color: var(--color-text-secondary);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+  padding: 0.85rem 1rem;
+}
+
+.table tbody td {
+  padding: 0.85rem 1rem;
+  vertical-align: middle;
+  color: var(--color-text);
+}
+
+.table tbody tr:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* --------------------------------------------------------------------- */
+/* Cards                                                                  */
+/* --------------------------------------------------------------------- */
+
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-5) var(--space-6);
+}
+.card-header h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.card-body {
+  padding: var(--space-6);
+}
+
+/* --------------------------------------------------------------------- */
+/* Modals                                                                 */
+/* --------------------------------------------------------------------- */
+
+.modal-content {
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-5) var(--space-6);
+  background-color: var(--color-surface-sunken);
+}
+
+.modal-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-text);
+}
+
+.modal-body {
+  padding: var(--space-6);
+}
+
+.modal-body input,
+.modal-body select,
+.modal-body textarea {
+  margin-bottom: var(--space-3);
+}
+
+.modal-footer {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-4) var(--space-6);
+}
+
+/* --------------------------------------------------------------------- */
+/* Forms                                                                  */
+/* --------------------------------------------------------------------- */
+
+.form-control,
+.form-select {
+  font-family: var(--font-sans);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.85rem;
+  font-size: 0.92rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-soft);
+}
+
+.form-control::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.35rem;
+}
+
+/* --------------------------------------------------------------------- */
+/* Alerts / toasts                                                       */
+/* --------------------------------------------------------------------- */
+
+.alert-danger {
+  background-color: var(--color-danger-bg);
+  border-color: var(--color-danger-border);
+  color: var(--color-danger);
+  border-radius: var(--radius-sm);
+}
+.alert-success {
+  background-color: var(--color-success-bg);
+  border-color: var(--color-success-border);
+  color: var(--color-success);
+  border-radius: var(--radius-sm);
+}
+
+/* --------------------------------------------------------------------- */
+/* Nav / Tabs (dashboard sidebars use react-bootstrap Nav)               */
+/* --------------------------------------------------------------------- */
+
+.nav-link {
+  font-family: var(--font-sans);
+}
+
+/* --------------------------------------------------------------------- */
+/* Badges                                                                 */
+/* --------------------------------------------------------------------- */
+
+.badge {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-pill);
+  padding: 0.35em 0.75em;
+}
+
+.badge.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+.badge.bg-success {
+  background-color: var(--color-success) !important;
+}
+.badge.bg-danger {
+  background-color: var(--color-danger) !important;
+}
+.badge.bg-secondary {
+  background-color: var(--color-text-muted) !important;
+}
