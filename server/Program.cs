@@ -20,6 +20,12 @@ public class Program
 {
     public static async Task Main(string[] args)
     {
+        // This app stores dates (birthdates, appointment dates, etc.) as naive DateTimes with
+        // no timezone concept, same as under SQL Server. Npgsql 6+ requires UTC-kind DateTimes
+        // for "timestamp with time zone" by default; this switch restores the pre-6.0 mapping
+        // to "timestamp without time zone" so naive DateTimes keep working unchanged.
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container
@@ -70,7 +76,7 @@ public class Program
 
         builder.Services.AddDbContext<HospitalDbContext>(options =>
         {
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultDBConnection"));
+            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultDBConnection"));
         });
 
         builder.Services.AddIdentity<User, IdentityRole>(options =>
@@ -117,11 +123,14 @@ public class Program
             options.OperationFilter<SecurityRequirementsOperationFilter>();
         });
 
+        var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>()
+            ?? new[] { "http://localhost:3000" };
+
         builder.Services.AddCors(options =>
         {
             options.AddPolicy("AllowSpecificOrigin",
-                builder => builder
-                    .WithOrigins("http://localhost:3000")
+                policy => policy
+                    .WithOrigins(allowedOrigins)
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());

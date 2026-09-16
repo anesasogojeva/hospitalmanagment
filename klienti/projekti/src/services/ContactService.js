@@ -1,7 +1,8 @@
 import axios from "axios";
 import { toast } from "react-toastify";
+import { API_BASE_URL } from '../config';
 
-const BASE_URL = "https://localhost:7246/api/Contact";
+const BASE_URL = `${API_BASE_URL}/Contact`;
 const token = localStorage.getItem("token");
 
 const headers = {

@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { API_BASE_URL } from '../config';
 
-const API_URL = 'https://localhost:7246/api/PacientiModels/patient';
+const API_URL = `${API_BASE_URL}/PacientiModels/patient`;
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem('token');
@@ -48,7 +49,7 @@ export const fetchRecords = async (page = 1, pageSize = 10) => {
 // Fetch doctor list
 export const fetchDoctors = async () => {
   try {
-    const response = await axios.get('https://localhost:7246/api/DoktoriModels', {
+    const response = await axios.get(`${API_BASE_URL}/DoktoriModels`, {
       headers: getAuthHeaders(),
     });
     return response.data.reduce((acc, doctor) => {
@@ -63,7 +64,7 @@ export const fetchDoctors = async () => {
 // Fetch full doctor profiles (name, specialization, photo) for the appointment doctor picker
 export const fetchDoctorProfiles = async () => {
   try {
-    const response = await axios.get('https://localhost:7246/api/DoktoriModels', {
+    const response = await axios.get(`${API_BASE_URL}/DoktoriModels`, {
       headers: getAuthHeaders(),
     });
     return response.data;
@@ -128,7 +129,7 @@ export const createEmergency = async (emergencyData) => {
 // Create a review
 export const createReview = async (reviewData) => {
   try {
-    await axios.post('https://localhost:7246/api/PacientiModels/patient/reviews', reviewData, {
+    await axios.post(`${API_BASE_URL}/PacientiModels/patient/reviews`, reviewData, {
       headers: getAuthHeaders(),
     });
   } catch (error) {

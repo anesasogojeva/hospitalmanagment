@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { API_BASE_URL } from '../config';
 
-const baseURL = 'https://localhost:7246/api/Reservation';
+const baseURL = `${API_BASE_URL}/Reservation`;
 const token = localStorage.getItem('token');
 const authHeaders = {
   headers: {

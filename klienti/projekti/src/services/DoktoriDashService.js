@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { API_BASE_URL } from '../config';
 
 // Base URL for the API
-const API_URL = 'https://localhost:7246/api/DoktoriModels/doctor';
+const API_URL = `${API_BASE_URL}/DoktoriModels/doctor`;
 
 // Function to create headers with the Authorization token
 const getHeaders = (token) => {
@@ -84,7 +85,7 @@ export const fetchDoctorProfile = async (token) => {
 // actually belongs to the authenticated doctor before allowing the change.
 export const updateAppointmentStatus = async (token, reservationId, status) => {
   try {
-    await axios.patch(`https://localhost:7246/api/Reservation/${reservationId}/status`, { status }, getHeaders(token));
+    await axios.patch(`${API_BASE_URL}/Reservation/${reservationId}/status`, { status }, getHeaders(token));
   } catch (error) {
     if (error.response) {
       if (error.response.status === 401) {
@@ -105,7 +106,7 @@ export const updateAppointmentStatus = async (token, reservationId, status) => {
 // Function to add a new record
 export const addRecord = async (newRecord, token) => {
   try {
-    const response = await axios.post(`https://localhost:7246/api/Dashboard/doctor/records`, newRecord, getHeaders(token));
+    const response = await axios.post(`${API_BASE_URL}/Dashboard/doctor/records`, newRecord, getHeaders(token));
     return response.data;
   } catch (error) {
     if (error.response) {

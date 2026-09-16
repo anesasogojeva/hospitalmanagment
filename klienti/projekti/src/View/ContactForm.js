@@ -3,6 +3,7 @@ import '../CSS/ContactForm.css'; // Import the CSS styles or inline the styles.
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { API_BASE_URL } from '../config';
 
 const ContactForm = () => {
   // State to manage form data and success message
@@ -28,7 +29,7 @@ const ContactForm = () => {
     e.preventDefault();
 
     const token = localStorage.getItem('token');
-    const url = "https://localhost:7246/api/Contact";
+    const url = `${API_BASE_URL}/Contact`;
     const data = {
       ...formData,
     };

@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { API_BASE_URL as BASE_URL } from '../config';
 
-const API_BASE_URL = 'https://localhost:7246/api/authentication';
+const API_BASE_URL = `${BASE_URL}/authentication`;
 
 // Handle HTTP request for login
 export const apiLogin = async (username, password) => {

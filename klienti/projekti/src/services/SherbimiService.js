@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { API_BASE_URL } from '../config';
 
-const BASE_URL = 'https://localhost:7246/api/Sherbimi';
+const BASE_URL = `${API_BASE_URL}/Sherbimi`;
 
 const SherbimiService = {
   getAll: () => {

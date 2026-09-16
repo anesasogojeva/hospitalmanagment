@@ -1,7 +1,8 @@
 import axios from "axios";
 import { decodeToken } from "./authService";
+import { API_BASE_URL } from '../config';
 
-const API_URL = "https://localhost:7246/api/Infermjeri";
+const API_URL = `${API_BASE_URL}/Infermjeri`;
 
 const getAuthHeader = () => {
   const token = localStorage.getItem("token");

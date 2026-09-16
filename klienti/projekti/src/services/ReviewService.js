@@ -1,5 +1,7 @@
-import axios from "axios";const API_URL = "https://localhost:7246/api/Review";
-const PATIENTS_API_URL = "https://localhost:7246/api/PacientiModels";  // Assuming this is the correct URL for the patients endpoint
+import axios from "axios";
+import { API_BASE_URL } from '../config';
+const API_URL = `${API_BASE_URL}/Review`;
+const PATIENTS_API_URL = `${API_BASE_URL}/PacientiModels`;  // Assuming this is the correct URL for the patients endpoint
 
 const headers = {
   Authorization: `Bearer ${localStorage.getItem("token")}`,
