@@ -36,7 +36,6 @@ const PatientDashboard = () => {
   const [recordsError, setRecordsError] = useState('');
   const [doctors, setDoctors] = useState({});
   const [doctorProfiles, setDoctorProfiles] = useState([]);
-  const [reviews, setReviews] = useState([]);
   const [showReservationModal, setShowReservationModal] = useState(false);
   const [showReviewModal, setShowReviewModal] = useState(false);
   const [reservationData, setReservationData] = useState({
@@ -66,14 +65,6 @@ const PatientDashboard = () => {
     doctorId: '',
   });
   
-  const handleSelectTab = (tab) => {
-    if (tab === 'contactUs') {
-      window.location.href = '/about#contactUs';
-    } else {
-      setActiveTab(tab);
-    }
-  };
-
   const handleSelectDoctor = (doctorId) => {
     // Changing doctor clears any previously chosen date/time since availability depends on the doctor
     setReservationData({ reservationDate: '', reservationTime: '', doctorId: String(doctorId) });

@@ -40,7 +40,7 @@ const searchPatients = ({ search = '', gender = '', page = 1, pageSize = 10 } = 
   });
 };
 
-export default {
+const PacientiService = {
   getPatients,
   getPatientById,
   addPatient,
@@ -48,3 +48,5 @@ export default {
   deletePatient,
   searchPatients
 };
+
+export default PacientiService;

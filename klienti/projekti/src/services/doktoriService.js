@@ -48,7 +48,7 @@ const getSpecializations = () => {
   });
 };
 
-export default {
+const DoktoriService = {
   getDoctors,
   getDoctorById,
   addDoctor,
@@ -57,3 +57,5 @@ export default {
   searchDoctors,
   getSpecializations
 };
+
+export default DoktoriService;

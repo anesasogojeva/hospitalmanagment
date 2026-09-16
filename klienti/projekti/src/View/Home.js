@@ -1,8 +1,7 @@
-import React, { Component, Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "../CSS/Home.css";
 import "../CSS/DoctorBios.css";
 import FooterPage from "./FooterPage";
-import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
@@ -14,7 +13,6 @@ import doktoriService from "../services/doktoriService";
 
 import Button from "react-bootstrap/Button";
 const Home = () => {
-  const [fullImgSrc, setFullImgSrc] = useState(null);
   const [doctors, setDoctors] = useState([]); // State for doctors data
 
   useEffect(() => {
@@ -28,23 +26,6 @@ const Home = () => {
         console.error("Error fetching doctors:", error);
       });
   }, []);
-
-  const handleLogout = () => {
-    // Clear any user session data, such as tokens or user information stored in local storage
-    localStorage.removeItem("token");
-    localStorage.removeItem("role");
-
-    // Optionally, redirect the user to the login page or perform any other necessary actions after logout
-    // For example, you can use window.location.href to redirect the user to the login page
-    window.location.href = "/LoginForm";
-  };
-  function openFullImg(src) {
-    setFullImgSrc(src);
-  }
-
-  function closeFullImg() {
-    setFullImgSrc(null);
-  }
 
   return (
     <div className="bodyHome">
@@ -66,7 +47,7 @@ const Home = () => {
         <div className="container-home">
           <div className="card-home">
             <div className="imgbox">
-              <img src="https://i.pinimg.com/736x/48/d8/d3/48d8d3f49ac249c290d8d6768f883a5b.jpg" />
+              <img src="https://i.pinimg.com/736x/48/d8/d3/48d8d3f49ac249c290d8d6768f883a5b.jpg" alt="" />
             </div>
             <div className="content-home">
               <h2>The best staff</h2>
@@ -81,7 +62,7 @@ const Home = () => {
           </div>
           <div className="card-home">
             <div className="imgbox">
-              <img src="https://i.pinimg.com/originals/45/ea/92/45ea92b520b3897259b7689caf36eae3.jpg" />
+              <img src="https://i.pinimg.com/originals/45/ea/92/45ea92b520b3897259b7689caf36eae3.jpg" alt="" />
             </div>
             <div className="content-home">
               <h2>Resonance</h2>
@@ -93,7 +74,7 @@ const Home = () => {
           </div>
           <div className="card-home">
             <div className="imgbox">
-              <img src="https://images.squarespace-cdn.com/content/v1/5aa96c579772aea9adaa2ef7/295bd613-d748-4a18-9b91-c04a725f7f06/MedicalTechnologyExamples_124.png" />
+              <img src="https://images.squarespace-cdn.com/content/v1/5aa96c579772aea9adaa2ef7/295bd613-d748-4a18-9b91-c04a725f7f06/MedicalTechnologyExamples_124.png" alt="" />
             </div>
             <div className="content-home">
               <h2>Latest Equipmens</h2>
@@ -105,7 +86,7 @@ const Home = () => {
           </div>
           <div className="card-home">
             <div className="imgbox">
-              <img src="https://th.bing.com/th/id/R.8b331ba96f1b74cdbbb0140fdfd3b8a8?rik=HnJy%2bFc2LzkZmw&pid=ImgRaw&r=0" />
+              <img src="https://th.bing.com/th/id/R.8b331ba96f1b74cdbbb0140fdfd3b8a8?rik=HnJy%2bFc2LzkZmw&pid=ImgRaw&r=0" alt="" />
             </div>
             <div className="content-home">
               <h2>Laboratory</h2>
@@ -155,7 +136,7 @@ const Home = () => {
       <div class="coontainer">
         <section class="about">
           <div class="about-image-patient">
-            <img src="https://content.health.harvard.edu/wp-content/uploads/2024/01/05d88a27-79aa-41a2-84f5-91e5b5eb36ff.jpg" />
+            <img src="https://content.health.harvard.edu/wp-content/uploads/2024/01/05d88a27-79aa-41a2-84f5-91e5b5eb36ff.jpg" alt="" />
           </div>
           <div class="about-coontent">
             <h2>"Your Journey to Better Health Begins Here."</h2>
@@ -196,7 +177,7 @@ const Home = () => {
 
           <div class="main-inner-servicess">
             <div class="services-img">
-              <img src="https://i.pinimg.com/originals/0e/d4/3a/0ed43ad3bb82d1849acb154ac44282b8.jpg" />
+              <img src="https://i.pinimg.com/originals/0e/d4/3a/0ed43ad3bb82d1849acb154ac44282b8.jpg" alt="" />
             </div>
             <div class="servicess-content">
               <h2>Stomatology</h2>
@@ -208,7 +189,7 @@ const Home = () => {
 
           <div class="main-inner-servicess">
             <div class="services-img">
-              <img src="https://i.pinimg.com/736x/c4/0c/3d/c40c3d19f58e63bb72fc1437453414b4.jpg" />
+              <img src="https://i.pinimg.com/736x/c4/0c/3d/c40c3d19f58e63bb72fc1437453414b4.jpg" alt="" />
             </div>
             <div class="servicess-content">
               <h2>Neurology</h2>
@@ -309,6 +290,7 @@ const Home = () => {
       </center>
       <br></br>
       <iframe
+        title="Hospital location map"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2856.812469825241!2d21.143523503176603!3d42.65200171275375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549ef3f69baacb%3A0xf864a269cc75e908!2sDukagjini%20Residence!5e0!3m2!1sen!2s!4v1682282589650!5m2!1sen!2s"
         width="100%"
         height="450"
