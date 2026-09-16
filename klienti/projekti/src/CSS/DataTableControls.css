@@ -106,4 +106,64 @@
        reset it so the search box doesn't turn into a tall empty box on mobile. */
     flex: 1 1 auto;
   }
+
+  /* Secondary columns on data tables - hidden below 640px so the remaining
+     columns (name, key status, actions) fit the screen without needing to
+     scroll the table horizontally. Full detail is still one tap away via Edit. */
+  .dt-col--optional {
+    display: none;
+  }
+
+  /* Row-action buttons (Edit/Delete etc.) side by side are wider than the
+     remaining screen width once the columns above are hidden - stack them. */
+  .dt-row-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dt-row-actions .btn {
+    padding: 0.2rem 0.35rem;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  /* Smaller text on the remaining table columns buys back the width the
+     hidden columns' neighbours (name, specialization, etc.) need to wrap
+     into 2-3 lines instead of forcing a wide single-line column. */
+  .table-responsive table {
+    font-size: 0.85rem;
+    /* table-layout: auto (the default) sizes columns by their widest
+       unbreakable content and lets the table grow past the container's
+       width, which is exactly what .table-responsive's overflow-x: auto
+       is for - but that means the table can *still* end up wider than the
+       screen. table-layout: fixed instead forces the table to respect
+       100% width and wrap long words/column headers to fit. */
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .table-responsive th,
+  .table-responsive td {
+    /* Prefer wrapping at word boundaries; only break inside a word if it's
+       wider than the whole column on its own (e.g. "Gynecologist"). */
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  /* table-layout: fixed splits width equally among columns with no explicit
+     width, which crushes name/specialization-type columns just as much as
+     the "#" and actions columns - mark the narrow ones so the readable
+     columns keep the rest of the space. */
+  .dt-col--index {
+    width: 10%;
+  }
+
+  .dt-col--actions {
+    width: 27%;
+  }
+}
+
+.dt-row-actions {
+  display: flex;
+  gap: 6px;
 }

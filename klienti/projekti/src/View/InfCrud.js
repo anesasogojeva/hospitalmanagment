@@ -259,18 +259,18 @@ const InfCrud = () => {
             <Table responsive striped bordered hover variant="dark">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th className="dt-col--index">#</th>
                   <th>Name</th>
                   <th>Surname</th>
-                  <th>Date</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th>Gender</th>
+                  <th className="dt-col--optional">Date</th>
+                  <th className="dt-col--optional">Email</th>
+                  <th className="dt-col--optional">Phone</th>
+                  <th className="dt-col--optional">Gender</th>
                   <th>Department</th>
-                  <th>Position</th>
-                  <th>Years of Experience</th>
-                  <th>Photo</th>
-                  <th></th>
+                  <th className="dt-col--optional">Position</th>
+                  <th className="dt-col--optional">Years of Experience</th>
+                  <th className="dt-col--optional">Photo</th>
+                  <th className="dt-col--actions"></th>
                 </tr>
               </thead>
               <tbody>
@@ -279,14 +279,14 @@ const InfCrud = () => {
                     <td>{(page - 1) * pageSize + index + 1}</td>
                     <td>{item.emri}</td>
                     <td>{item.mbiemri}</td>
-                    <td>{item.dataELindjes}</td>
-                    <td>{item.email}</td>
-                    <td>{item.numriTel}</td>
-                    <td>{item.gjinia}</td>
+                    <td className="dt-col--optional">{item.dataELindjes}</td>
+                    <td className="dt-col--optional">{item.email}</td>
+                    <td className="dt-col--optional">{item.numriTel}</td>
+                    <td className="dt-col--optional">{item.gjinia}</td>
                     <td>{item.departamenti}</td>
-                    <td>{item.pozita}</td>
-                    <td>{item.vitetPune}</td>
-                    <td>
+                    <td className="dt-col--optional">{item.pozita}</td>
+                    <td className="dt-col--optional">{item.vitetPune}</td>
+                    <td className="dt-col--optional">
                       <img
                         src={item.photoFile}
                         alt="Nurse"
@@ -298,16 +298,17 @@ const InfCrud = () => {
                       />
                     </td>
                     <td>
-                      <Button variant="success" onClick={() => handleEdit(item)}>
-                        Edit
-                      </Button>{" "}
-                      &nbsp;
-                      <Button
-                        variant="outline-light"
-                        onClick={() => handleDelete(item.id_i)}
-                      >
-                        Delete
-                      </Button>
+                      <div className="dt-row-actions">
+                        <Button variant="success" onClick={() => handleEdit(item)}>
+                          Edit
+                        </Button>
+                        <Button
+                          variant="outline-light"
+                          onClick={() => handleDelete(item.id_i)}
+                        >
+                          Delete
+                        </Button>
+                      </div>
                     </td>
                   </tr>
                 ))}

@@ -348,22 +348,22 @@ const Doktori = () => {
                                       <Table responsive striped bordered hover variant="light">
                                         <thead>
                                           <tr>
-                                            <th>ID</th>
+                                            <th className="dt-col--optional">ID</th>
                                             <th>Name</th>
                                             <th>Surname</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
+                                            <th className="dt-col--optional">Email</th>
+                                            <th className="dt-col--optional">Phone</th>
                                             <th>Actions</th>
                                           </tr>
                                         </thead>
                                         <tbody>
                                           {patients.map((patient) => (
                                             <tr key={patient.id_P}>
-                                              <td>{patient.id_P}</td>
+                                              <td className="dt-col--optional">{patient.id_P}</td>
                                               <td>{patient.emri}</td>
                                               <td>{patient.mbiemri}</td>
-                                              <td>{patient.email || '—'}</td>
-                                              <td>{patient.numriTel}</td>
+                                              <td className="dt-col--optional">{patient.email || '—'}</td>
+                                              <td className="dt-col--optional">{patient.numriTel}</td>
                                               <td>
                                                 <Button variant="info" onClick={() => handleShow(patient)}>Details</Button>
                                               </td>
@@ -398,10 +398,10 @@ const Doktori = () => {
                               <thead>
                                 <tr>
                                 <th>#</th>
-                                <th>Record ID</th>
+                                <th className="dt-col--optional">Record ID</th>
                                 <th>Diagnosis</th>
-                                 <th>Prescription</th>
-                                  <th>Results</th>
+                                 <th className="dt-col--optional">Prescription</th>
+                                  <th className="dt-col--optional">Results</th>
                                   <th>Patient</th>
                                </tr>
                                </thead>
@@ -409,10 +409,10 @@ const Doktori = () => {
                   {records.length > 0 ? records.map((record, index) => (
                     <tr key={record.id_Rek}>
                       <td>{index + 1}</td>
-                      <td>{record.id_Rek}</td>
+                      <td className="dt-col--optional">{record.id_Rek}</td>
                       <td>{record.diagnoza}</td>
-                      <td>{record.receta}</td>
-                      <td>{record.rezultatet}</td>
+                      <td className="dt-col--optional">{record.receta}</td>
+                      <td className="dt-col--optional">{record.rezultatet}</td>
                       <td>{record.pacienti?.emri || 'Unknown'}</td>
                     </tr>
                   )) : <tr><td colSpan="6">No records yet.</td></tr>}
@@ -474,26 +474,26 @@ const Doktori = () => {
                                       <Table responsive striped bordered hover variant="light">
                                         <thead>
                                           <tr>
-                                            <th>#</th>
-                                            <th>Appointment ID</th>
+                                            <th className="dt-col--optional">#</th>
+                                            <th className="dt-col--optional">Appointment ID</th>
                                             <th>Date</th>
                                             <th>Time</th>
                                             <th>Patient</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
+                                            <th className="dt-col--optional">Email</th>
+                                            <th className="dt-col--optional">Phone</th>
                                             <th>Status</th>
                                           </tr>
                                         </thead>
                                         <tbody>
                                           {reservations.map((reservation, index) => (
                                             <tr key={reservation.reservationId}>
-                                              <td>{(reservationsPage - 1) * RESERVATIONS_PAGE_SIZE + index + 1}</td>
-                                              <td>{reservation.reservationId}</td>
+                                              <td className="dt-col--optional">{(reservationsPage - 1) * RESERVATIONS_PAGE_SIZE + index + 1}</td>
+                                              <td className="dt-col--optional">{reservation.reservationId}</td>
                                               <td>{reservation.reservationDate}</td>
                                               <td>{reservation.reservationTime}</td>
                                               <td>{[reservation.patientName, reservation.patientSurname].filter(Boolean).join(' ') || 'Unknown'}</td>
-                                              <td>{reservation.patientEmail || '—'}</td>
-                                              <td>{reservation.patientPhone || '—'}</td>
+                                              <td className="dt-col--optional">{reservation.patientEmail || '—'}</td>
+                                              <td className="dt-col--optional">{reservation.patientPhone || '—'}</td>
                                               <td>
                                                 <Form.Select
                                                   size="sm"
@@ -533,10 +533,10 @@ const Doktori = () => {
                                     <thead>
                                       <tr>
                                         <th>#</th>
-                                        <th>Emergency ID</th>
+                                        <th className="dt-col--optional">Emergency ID</th>
                                         <th>Subject</th>
-                                        <th>Description</th>
-                                        <th>Contact Number</th>
+                                        <th className="dt-col--optional">Description</th>
+                                        <th className="dt-col--optional">Contact Number</th>
                                         <th>Patient</th>
                                       </tr>
                                     </thead>
@@ -544,10 +544,10 @@ const Doktori = () => {
                                       {emergency.length > 0 ? emergency.map((emergency, index) => (
                                         <tr key={emergency.emergencyid}>
                                           <td>{index + 1}</td>
-                                          <td>{emergency.id_E}</td>
+                                          <td className="dt-col--optional">{emergency.id_E}</td>
                                           <td>{emergency.subject}</td>
-                                          <td>{emergency.pershkrimi}</td>
-                                          <td>{emergency.numriKontaktit}</td>
+                                          <td className="dt-col--optional">{emergency.pershkrimi}</td>
+                                          <td className="dt-col--optional">{emergency.numriKontaktit}</td>
                                           <td>{emergency.patientNavigation?.emri || 'Unknown'}</td>
                                         </tr>
                                       )) : <tr><td colSpan="5">No emergency requests yet.</td></tr>}

@@ -275,15 +275,15 @@ const Doktori = () => {
             <Table responsive striped bordered hover variant="dark">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th className="dt-col--index">#</th>
                   <th>Name and Surname</th>
-                  <th>Date</th>
-                  <th>Email</th>
-                  <th>Phone</th>
+                  <th className="dt-col--optional">Date</th>
+                  <th className="dt-col--optional">Email</th>
+                  <th className="dt-col--optional">Phone</th>
                   <th>Specialization</th>
-                  <th>Experience</th>
-                  <th>Photo</th>
-                  <th></th>
+                  <th className="dt-col--optional">Experience</th>
+                  <th className="dt-col--optional">Photo</th>
+                  <th className="dt-col--actions"></th>
                 </tr>
               </thead>
               <tbody>
@@ -291,17 +291,19 @@ const Doktori = () => {
                   <tr key={item.id}>
                     <td>{(page - 1) * pageSize + index + 1}</td>
                     <td>{item.emri}</td>
-                    <td>{item.dataELindjes}</td>
-                    <td>{item.email}</td>
-                    <td>{item.numriTel}</td>
+                    <td className="dt-col--optional">{item.dataELindjes}</td>
+                    <td className="dt-col--optional">{item.email}</td>
+                    <td className="dt-col--optional">{item.numriTel}</td>
                     <td>{item.specializimi}</td>
-                    <td>{item.pervoja}</td>
-                    <td>
+                    <td className="dt-col--optional">{item.pervoja}</td>
+                    <td className="dt-col--optional">
                       <img src={item.photoFileName} alt="Doctor" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
                     </td>
                     <td>
-                      <Button variant="success" onClick={() => handleEdit(item.id)}>Edit</Button>
-                      <Button variant="outline-light" onClick={() => handleDelete(item.id)}>Delete</Button>
+                      <div className="dt-row-actions">
+                        <Button variant="success" onClick={() => handleEdit(item.id)}>Edit</Button>
+                        <Button variant="outline-light" onClick={() => handleDelete(item.id)}>Delete</Button>
+                      </div>
                     </td>
                   </tr>
                 ))}
