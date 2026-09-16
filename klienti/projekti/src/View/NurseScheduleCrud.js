@@ -165,7 +165,7 @@ const NurseScheduleCrud = () => {
         </Container>
       ) : (
         <Container className="mt-4">
-          <Table striped bordered hover variant="dark" className="nurse-schedule-table">
+          <Table responsive striped bordered hover variant="dark" className="nurse-schedule-table">
             <thead>
               <tr>
                 <th>Day</th>

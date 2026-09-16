@@ -166,7 +166,7 @@ const ServCrud = () => {
           </div>
         ) : (
           <>
-            <Table striped bordered hover variant="dark" className="mt-4">
+            <Table responsive striped bordered hover variant="dark" className="mt-4">
               <thead>
                 <tr>
                   <th>#</th>

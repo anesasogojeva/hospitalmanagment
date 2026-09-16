@@ -358,7 +358,7 @@ const PatientDashboard = () => {
         <div className="dt-state">No emergencies found.</div>
       ) : (
         <>
-          <Table striped bordered hover variant="light">
+          <Table responsive striped bordered hover variant="light">
             <thead>
               <tr>
                 <th>#</th>
@@ -420,7 +420,7 @@ const PatientDashboard = () => {
                             <div className="dt-state">No appointments found.</div>
                           ) : (
                             <>
-                              <Table striped bordered hover variant="light">
+                              <Table responsive striped bordered hover variant="light">
                                 <thead>
                                   <tr>
                                     <th>#</th>
@@ -471,7 +471,7 @@ const PatientDashboard = () => {
                             <div className="dt-state">No records found.</div>
                           ) : (
                             <>
-                              <Table striped bordered hover variant="light">
+                              <Table responsive striped bordered hover variant="light">
                                 <thead>
                                   <tr>
                                     <th>#</th>

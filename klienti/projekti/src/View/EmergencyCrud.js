@@ -226,7 +226,7 @@ const EmergencyCrud = () => {
           </div>
         ) : (
           <>
-            <Table striped bordered hover variant="dark">
+            <Table responsive striped bordered hover variant="dark">
               <thead>
                 <tr>
                   <th>#</th>

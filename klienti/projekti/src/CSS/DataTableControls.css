@@ -101,5 +101,9 @@
   .dt-toolbar__search,
   .dt-toolbar__filter {
     max-width: none;
+    /* .dt-toolbar__search's flex-basis of 260px is a width in the default row
+       layout, but becomes a height once flex-direction switches to column here -
+       reset it so the search box doesn't turn into a tall empty box on mobile. */
+    flex: 1 1 auto;
   }
 }

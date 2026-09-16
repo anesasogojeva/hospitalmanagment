@@ -345,7 +345,7 @@ const Doktori = () => {
                                     </div>
                                   ) : (
                                     <>
-                                      <Table striped bordered hover variant="light">
+                                      <Table responsive striped bordered hover variant="light">
                                         <thead>
                                           <tr>
                                             <th>ID</th>
@@ -394,7 +394,7 @@ const Doktori = () => {
                                            </div>
                                          </Card.Header>
                              <Card.Body>
-                                      <Table striped bordered hover variant="light">
+                                      <Table responsive striped bordered hover variant="light">
                               <thead>
                                 <tr>
                                 <th>#</th>
@@ -471,7 +471,7 @@ const Doktori = () => {
                                     </div>
                                   ) : (
                                     <>
-                                      <Table striped bordered hover variant="light">
+                                      <Table responsive striped bordered hover variant="light">
                                         <thead>
                                           <tr>
                                             <th>#</th>
@@ -529,7 +529,7 @@ const Doktori = () => {
                                   <h2>Emergency</h2>
                                 </Card.Header>
                                 <Card.Body>
-                                  <Table striped bordered hover variant="light">
+                                  <Table responsive striped bordered hover variant="light">
                                     <thead>
                                       <tr>
                                         <th>#</th>
@@ -563,7 +563,7 @@ const Doktori = () => {
       <h2>Nurses for the Week</h2>
     </Card.Header>
     <Card.Body>
-      <Table striped bordered hover variant="light">
+      <Table responsive striped bordered hover variant="light">
         <thead>
           <tr>
             <th>Day</th>
