@@ -25,16 +25,16 @@ const LoginForm = () => {
         // Redirect based on the role
         switch (role) {
           case 'admin':
-            window.location.href = 'http://localhost:3000/AdminDashboard';
+            window.location.href = '/AdminDashboard';
             break;
           case 'doktor':
-            window.location.href = 'http://localhost:3000/Doktori';
+            window.location.href = '/Doktori';
             break;
           case 'patient':
-            window.location.href = 'http://localhost:3000/PatientDashboard';
+            window.location.href = '/PatientDashboard';
             break;
           default:
-            window.location.href = 'http://localhost:3000/Home';
+            window.location.href = '/Home';
             break;
         }
       } else {
