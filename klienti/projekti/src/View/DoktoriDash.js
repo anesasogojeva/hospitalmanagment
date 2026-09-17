@@ -409,27 +409,27 @@ const Doktori = () => {
                                            </div>
                                          </Card.Header>
                              <Card.Body>
-                                      <Table responsive striped bordered hover variant="light">
+                                      <Table responsive striped bordered hover variant="light" className="dt-table--cards">
                               <thead>
                                 <tr>
-                                <th className="dt-col--index">#</th>
+                                <th className="dt-col--optional">#</th>
                                 <th className="dt-col--optional">Record ID</th>
                                 <th>Diagnosis</th>
-                                 <th className="dt-col--optional">Prescription</th>
-                                  <th className="dt-col--optional">Results</th>
+                                 <th>Prescription</th>
+                                  <th>Results</th>
                                   <th>Patient</th>
-                                  <th className="dt-col--actions"></th>
+                                  <th></th>
                                </tr>
                                </thead>
                              <tbody>
                   {records.length > 0 ? records.map((record, index) => (
                     <tr key={record.id_Rek}>
-                      <td>{index + 1}</td>
+                      <td className="dt-col--optional">{index + 1}</td>
                       <td className="dt-col--optional">{record.id_Rek}</td>
-                      <td>{record.diagnoza}</td>
-                      <td className="dt-col--optional">{record.receta}</td>
-                      <td className="dt-col--optional">{record.rezultatet}</td>
-                      <td>{record.pacienti?.emri || 'Unknown'}</td>
+                      <td data-label="Diagnosis">{record.diagnoza}</td>
+                      <td data-label="Prescription">{record.receta}</td>
+                      <td data-label="Results">{record.rezultatet}</td>
+                      <td data-label="Patient">{record.pacienti?.emri || 'Unknown'}</td>
                       <td>
                         <div className="dt-row-actions">
                           <Button variant="outline-danger" size="sm" onClick={() => handleDeleteRecord(record.id_Rek)}>Delete</Button>

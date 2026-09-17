@@ -193,6 +193,57 @@
   .dt-col--status {
     width: 30%;
   }
+
+  /* Records hold real sentences (prescription notes, results), not short
+     labels - no column width is going to make 4 of those sit side by side
+     on a phone. Instead of a grid, stack each row into a labelled card:
+     the header row hides, each cell becomes a full-width block with its
+     column name (from data-label) printed above the value. */
+  .dt-table--cards {
+    table-layout: auto;
+  }
+
+  .dt-table--cards thead {
+    display: none;
+  }
+
+  .dt-table--cards tbody tr {
+    display: block;
+    margin-bottom: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .dt-table--cards td {
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-2) var(--space-3);
+  }
+
+  .dt-table--cards td:last-child {
+    border-bottom: none;
+  }
+
+  .dt-table--cards td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-secondary);
+    margin-bottom: 2px;
+  }
+
+  /* .dt-table--cards td's `display: block` (class + element) outranks the
+     plain .dt-col--optional class alone, so columns like "#"/Record ID
+     that should stay hidden inside a card row need the extra push here. */
+  .dt-table--cards td.dt-col--optional {
+    display: none;
+  }
 }
 
 .dt-row-actions {

@@ -471,26 +471,26 @@ const PatientDashboard = () => {
                             <div className="dt-state">No records found.</div>
                           ) : (
                             <>
-                              <Table responsive striped bordered hover variant="light">
+                              <Table responsive striped bordered hover variant="light" className="dt-table--cards">
                                 <thead>
                                   <tr>
-                                    <th className="dt-col--index">#</th>
+                                    <th className="dt-col--optional">#</th>
                                     <th className="dt-col--optional">ID Record</th>
                                     <th>Diagnosis</th>
-                                    <th className="dt-col--optional">Prescription</th>
-                                    <th className="dt-col--optional">Results</th>
+                                    <th>Prescription</th>
+                                    <th>Results</th>
                                     <th>Doctor</th>
                                   </tr>
                                 </thead>
                                 <tbody>
                                   {records.map((record, index) => (
                                     <tr key={record.id_Rek}>
-                                      <td>{(recordsPage - 1) * PAGE_SIZE + index + 1}</td>
+                                      <td className="dt-col--optional">{(recordsPage - 1) * PAGE_SIZE + index + 1}</td>
                                       <td className="dt-col--optional">{record.id_Rek}</td>
-                                      <td>{record.diagnoza}</td>
-                                      <td className="dt-col--optional">{record.receta}</td>
-                                      <td className="dt-col--optional">{record.rezultatet}</td>
-                                      <td>{doctors[record.doctorId] || 'Unknown'}</td>
+                                      <td data-label="Diagnosis">{record.diagnoza}</td>
+                                      <td data-label="Prescription">{record.receta}</td>
+                                      <td data-label="Results">{record.rezultatet}</td>
+                                      <td data-label="Doctor">{doctors[record.doctorId] || 'Unknown'}</td>
                                     </tr>
                                   ))}
                                 </tbody>
