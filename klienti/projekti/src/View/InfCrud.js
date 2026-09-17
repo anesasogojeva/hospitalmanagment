@@ -256,37 +256,37 @@ const InfCrud = () => {
           </div>
         ) : (
           <>
-            <Table responsive striped bordered hover variant="dark">
+            <Table responsive striped bordered hover variant="dark" className="dt-table--cards">
               <thead>
                 <tr>
-                  <th className="dt-col--index">#</th>
+                  <th className="dt-col--optional">#</th>
                   <th>Name</th>
                   <th>Surname</th>
-                  <th className="dt-col--optional">Date</th>
-                  <th className="dt-col--optional">Email</th>
-                  <th className="dt-col--optional">Phone</th>
-                  <th className="dt-col--optional">Gender</th>
+                  <th>Date</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Gender</th>
                   <th>Department</th>
-                  <th className="dt-col--optional">Position</th>
-                  <th className="dt-col--optional">Years of Experience</th>
-                  <th className="dt-col--photo"></th>
-                  <th className="dt-col--actions"></th>
+                  <th>Position</th>
+                  <th>Years of Experience</th>
+                  <th>Photo</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
                 {infermjeri.map((item, index) => (
                   <tr key={item.id_i}>
-                    <td>{(page - 1) * pageSize + index + 1}</td>
-                    <td>{item.emri}</td>
-                    <td>{item.mbiemri}</td>
-                    <td className="dt-col--optional">{item.dataELindjes}</td>
-                    <td className="dt-col--optional">{item.email}</td>
-                    <td className="dt-col--optional">{item.numriTel}</td>
-                    <td className="dt-col--optional">{item.gjinia}</td>
-                    <td className="dt-col--optional">{item.departamenti}</td>
-                    <td className="dt-col--optional">{item.pozita}</td>
-                    <td className="dt-col--optional">{item.vitetPune}</td>
-                    <td className="dt-col--photo">
+                    <td className="dt-col--optional">{(page - 1) * pageSize + index + 1}</td>
+                    <td data-label="Name">{item.emri}</td>
+                    <td data-label="Surname">{item.mbiemri}</td>
+                    <td data-label="Date">{item.dataELindjes}</td>
+                    <td data-label="Email">{item.email}</td>
+                    <td data-label="Phone">{item.numriTel}</td>
+                    <td data-label="Gender">{item.gjinia}</td>
+                    <td data-label="Department">{item.departamenti}</td>
+                    <td data-label="Position">{item.pozita}</td>
+                    <td data-label="Years of Experience">{item.vitetPune}</td>
+                    <td data-label="Photo">
                       <img src={item.photoFile} alt="Nurse" className="dt-avatar" />
                     </td>
                     <td>

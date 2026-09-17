@@ -325,27 +325,27 @@ const ReservationCrud = () => {
           </div>
         ) : (
           <>
-            <Table responsive striped bordered hover variant="dark" className="reservation-admin-table">
+            <Table responsive striped bordered hover variant="dark" className="dt-table--cards">
               <thead>
                 <tr>
                   <th className="dt-col--optional">#</th>
-                  <th className="dt-col--narrow-date">Date</th>
-                  <th className="dt-col--narrow-time">Time</th>
+                  <th>Date</th>
+                  <th>Time</th>
                   <th>Patient</th>
                   <th>Doctor</th>
-                  <th className="dt-col--status">Status</th>
-                  <th className="dt-col--actions"></th>
+                  <th>Status</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
                 {data.map((item, index) => (
                   <tr key={item.reservationId}>
                     <td className="dt-col--optional">{(page - 1) * pageSize + index + 1}</td>
-                    <td>{new Date(item.reservationDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}</td>
-                    <td>{item.reservationTime}</td>
-                    <td><Button variant="outline-light" onClick={() => handleShowPaci(item.patientNavigation)}>{item.patientNavigation?.emri}</Button></td>
-                    <td><Button variant="outline-light" onClick={() => handleShowDoki(item.doctorNavigation)}>{item.doctorNavigation?.emri}</Button></td>
-                    <td>
+                    <td data-label="Date">{new Date(item.reservationDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}</td>
+                    <td data-label="Time">{item.reservationTime}</td>
+                    <td data-label="Patient"><Button variant="outline-light" onClick={() => handleShowPaci(item.patientNavigation)}>{item.patientNavigation?.emri}</Button></td>
+                    <td data-label="Doctor"><Button variant="outline-light" onClick={() => handleShowDoki(item.doctorNavigation)}>{item.doctorNavigation?.emri}</Button></td>
+                    <td data-label="Status">
                       <Form.Select
                         size="sm"
                         style={{ width: '100%' }}

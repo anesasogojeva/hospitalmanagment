@@ -272,31 +272,31 @@ const Doktori = () => {
           </div>
         ) : (
           <>
-            <Table responsive striped bordered hover variant="dark">
+            <Table responsive striped bordered hover variant="dark" className="dt-table--cards">
               <thead>
                 <tr>
-                  <th className="dt-col--index">#</th>
+                  <th className="dt-col--optional">#</th>
                   <th>Name and Surname</th>
-                  <th className="dt-col--optional">Date</th>
-                  <th className="dt-col--optional">Email</th>
-                  <th className="dt-col--optional">Phone</th>
+                  <th>Date</th>
+                  <th>Email</th>
+                  <th>Phone</th>
                   <th>Specialty</th>
-                  <th className="dt-col--optional">Experience</th>
-                  <th className="dt-col--photo"></th>
-                  <th className="dt-col--actions"></th>
+                  <th>Experience</th>
+                  <th>Photo</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
                 {data.map((item, index) => (
                   <tr key={item.id}>
-                    <td>{(page - 1) * pageSize + index + 1}</td>
-                    <td>{item.emri}</td>
-                    <td className="dt-col--optional">{item.dataELindjes}</td>
-                    <td className="dt-col--optional">{item.email}</td>
-                    <td className="dt-col--optional">{item.numriTel}</td>
-                    <td>{item.specializimi}</td>
-                    <td className="dt-col--optional">{item.pervoja}</td>
-                    <td className="dt-col--photo">
+                    <td className="dt-col--optional">{(page - 1) * pageSize + index + 1}</td>
+                    <td data-label="Name and Surname">{item.emri}</td>
+                    <td data-label="Date">{item.dataELindjes}</td>
+                    <td data-label="Email">{item.email}</td>
+                    <td data-label="Phone">{item.numriTel}</td>
+                    <td data-label="Specialty">{item.specializimi}</td>
+                    <td data-label="Experience">{item.pervoja}</td>
+                    <td data-label="Photo">
                       <img src={item.photoFileName} alt="Doctor" className="dt-avatar" />
                     </td>
                     <td>
