@@ -361,10 +361,10 @@ const PatientDashboard = () => {
           <Table responsive striped bordered hover variant="light">
             <thead>
               <tr>
-                <th>#</th>
+                <th className="dt-col--index">#</th>
                 <th>Subject</th>
-                <th>Description</th>
-                <th>Contact Number</th>
+                <th className="dt-col--optional">Description</th>
+                <th className="dt-col--optional">Contact Number</th>
                 <th>Doctor</th>
               </tr>
             </thead>
@@ -373,8 +373,8 @@ const PatientDashboard = () => {
                 <tr key={emergency.id_E}>
                   <td>{(emergenciesPage - 1) * PAGE_SIZE + index + 1}</td>
                   <td>{emergency.subject}</td>
-                  <td>{emergency.pershkrimi}</td>
-                  <td>{emergency.numriKontaktit}</td>
+                  <td className="dt-col--optional">{emergency.pershkrimi}</td>
+                  <td className="dt-col--optional">{emergency.numriKontaktit}</td>
                   <td>{doctors[emergency.doctor] || 'Unknown'}</td>
                 </tr>
               ))}
@@ -423,10 +423,10 @@ const PatientDashboard = () => {
                               <Table responsive striped bordered hover variant="light">
                                 <thead>
                                   <tr>
-                                    <th>#</th>
-                                    <th>Appointment ID</th>
-                                    <th>Date</th>
-                                    <th>Time</th>
+                                    <th className="dt-col--optional">#</th>
+                                    <th className="dt-col--optional">Appointment ID</th>
+                                    <th className="dt-col--narrow-date">Date</th>
+                                    <th className="dt-col--narrow-time">Time</th>
                                     <th>Doctor</th>
                                     <th>Status</th>
                                   </tr>
@@ -434,9 +434,9 @@ const PatientDashboard = () => {
                                 <tbody>
                                   {reservations.map((reservation, index) => (
                                     <tr key={reservation.reservationId}>
-                                      <td>{(reservationsPage - 1) * PAGE_SIZE + index + 1}</td>
-                                      <td>{reservation.reservationId}</td>
-                                      <td>{reservation.reservationDate}</td>
+                                      <td className="dt-col--optional">{(reservationsPage - 1) * PAGE_SIZE + index + 1}</td>
+                                      <td className="dt-col--optional">{reservation.reservationId}</td>
+                                      <td>{new Date(reservation.reservationDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}</td>
                                       <td>{reservation.reservationTime}</td>
                                       <td>{doctors[reservation.doctor] || 'Unknown'}</td>
                                       <td><AppointmentStatusBadge status={reservation.status} /></td>
@@ -474,11 +474,11 @@ const PatientDashboard = () => {
                               <Table responsive striped bordered hover variant="light">
                                 <thead>
                                   <tr>
-                                    <th>#</th>
-                                    <th>ID Record</th>
+                                    <th className="dt-col--index">#</th>
+                                    <th className="dt-col--optional">ID Record</th>
                                     <th>Diagnosis</th>
-                                    <th>Prescription</th>
-                                    <th>Results</th>
+                                    <th className="dt-col--optional">Prescription</th>
+                                    <th className="dt-col--optional">Results</th>
                                     <th>Doctor</th>
                                   </tr>
                                 </thead>
@@ -486,10 +486,10 @@ const PatientDashboard = () => {
                                   {records.map((record, index) => (
                                     <tr key={record.id_Rek}>
                                       <td>{(recordsPage - 1) * PAGE_SIZE + index + 1}</td>
-                                      <td>{record.id_Rek}</td>
+                                      <td className="dt-col--optional">{record.id_Rek}</td>
                                       <td>{record.diagnoza}</td>
-                                      <td>{record.receta}</td>
-                                      <td>{record.rezultatet}</td>
+                                      <td className="dt-col--optional">{record.receta}</td>
+                                      <td className="dt-col--optional">{record.rezultatet}</td>
                                       <td>{doctors[record.doctorId] || 'Unknown'}</td>
                                     </tr>
                                   ))}
