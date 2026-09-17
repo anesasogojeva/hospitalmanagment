@@ -46,6 +46,23 @@ namespace dizajn_Projekti.Controllers
             return CreatedAtAction(nameof(GetDoctorRecords), new { id = newRecord.Id_Rek }, newRecord);
         }
 
+        // DELETE: api/Dashboard/doctor/records/{id}
+        [HttpDelete("doctor/records/{id}")]
+        [Authorize(Roles = "doktor")]
+        public async Task<IActionResult> DeleteRecord(int id)
+        {
+            var userId = _userManager.GetUserId(User);
+            try
+            {
+                await _rekordService.DeleteDoctorRecord(id, userId);
+                return NoContent();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+        }
+
         // GET: api/Dashboard/summary
         [HttpGet("summary")]
         [Authorize(Roles = "admin")]

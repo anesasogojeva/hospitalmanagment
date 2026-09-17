@@ -117,3 +117,17 @@ export const addRecord = async (newRecord, token) => {
     throw new Error('Network error: Unable to reach the server.');
   }
 };
+
+// Function to delete one of the doctor's own records
+export const deleteRecord = async (recordId, token) => {
+  try {
+    await axios.delete(`${API_BASE_URL}/Dashboard/doctor/records/${recordId}`, getHeaders(token));
+  } catch (error) {
+    if (error.response) {
+      console.error('API Error:', error.response);
+      throw new Error('Error deleting record.');
+    }
+    console.error('Network Error:', error);
+    throw new Error('Network error: Unable to reach the server.');
+  }
+};

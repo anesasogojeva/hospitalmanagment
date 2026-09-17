@@ -280,9 +280,9 @@ const Doktori = () => {
                   <th className="dt-col--optional">Date</th>
                   <th className="dt-col--optional">Email</th>
                   <th className="dt-col--optional">Phone</th>
-                  <th>Specialization</th>
+                  <th>Specialty</th>
                   <th className="dt-col--optional">Experience</th>
-                  <th className="dt-col--optional">Photo</th>
+                  <th className="dt-col--photo"></th>
                   <th className="dt-col--actions"></th>
                 </tr>
               </thead>
@@ -296,8 +296,8 @@ const Doktori = () => {
                     <td className="dt-col--optional">{item.numriTel}</td>
                     <td>{item.specializimi}</td>
                     <td className="dt-col--optional">{item.pervoja}</td>
-                    <td className="dt-col--optional">
-                      <img src={item.photoFileName} alt="Doctor" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
+                    <td className="dt-col--photo">
+                      <img src={item.photoFileName} alt="Doctor" className="dt-avatar" />
                     </td>
                     <td>
                       <div className="dt-row-actions">

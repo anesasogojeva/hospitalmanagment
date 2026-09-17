@@ -95,3 +95,17 @@
     border-bottom: 1px solid var(--color-border);
   }
 }
+
+@media (max-width: 640px) {
+  /* 32px a side here plus react-bootstrap's default 16px Card.Body padding
+     left very little room for the data tables inside - shrink both so
+     phone-width tables get close to the same usable width the admin
+     dashboard's tables (which don't sit inside this shell) already get. */
+  .portal-content {
+    padding: var(--space-4) var(--space-3) var(--space-6);
+  }
+
+  .portal-content .card-body {
+    padding: var(--space-3);
+  }
+}

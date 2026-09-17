@@ -16,7 +16,7 @@ import Navbar from '../components/Navbar'; // Ensure correct path
 import Pagination from '../components/Pagination';
 import useDebouncedValue from '../hooks/useDebouncedValue';
 import {
-  fetchEmergency, fetchRecords, fetchNurses, addRecord, fetchDoctorProfile,
+  fetchEmergency, fetchRecords, fetchNurses, addRecord, deleteRecord, fetchDoctorProfile,
   searchDoctorReservations, searchDoctorPatients, updateAppointmentStatus,
 } from '../services/DoktoriDashService'; // Service Layer
 import '../CSS/PortalDashboard.css';
@@ -84,6 +84,19 @@ const Doktori = () => {
       setShowAddRecordModal(false);
       setNewRecord({ diagnoza: '', receta: '', rezultatet: '', id_P: '' });
 
+      const recordsResponse = await fetchRecords(token);
+      setRecords(recordsResponse);
+    } catch (error) {
+      toast.error(error.message);
+    }
+  };
+
+  const handleDeleteRecord = async (recordId) => {
+    if (!window.confirm('Are you sure you want to delete this record?')) return;
+    try {
+      const token = localStorage.getItem('token');
+      await deleteRecord(recordId, token);
+      toast.success('Record deleted successfully');
       const recordsResponse = await fetchRecords(token);
       setRecords(recordsResponse);
     } catch (error) {
@@ -353,7 +366,7 @@ const Doktori = () => {
                                             <th>Surname</th>
                                             <th className="dt-col--optional">Email</th>
                                             <th className="dt-col--optional">Phone</th>
-                                            <th>Actions</th>
+                                            <th className="dt-col--actions">Actions</th>
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -365,7 +378,9 @@ const Doktori = () => {
                                               <td className="dt-col--optional">{patient.email || '—'}</td>
                                               <td className="dt-col--optional">{patient.numriTel}</td>
                                               <td>
-                                                <Button variant="info" onClick={() => handleShow(patient)}>Details</Button>
+                                                <div className="dt-row-actions">
+                                                  <Button variant="info" onClick={() => handleShow(patient)}>Details</Button>
+                                                </div>
                                               </td>
                                             </tr>
                                           ))}
@@ -397,12 +412,13 @@ const Doktori = () => {
                                       <Table responsive striped bordered hover variant="light">
                               <thead>
                                 <tr>
-                                <th>#</th>
+                                <th className="dt-col--index">#</th>
                                 <th className="dt-col--optional">Record ID</th>
                                 <th>Diagnosis</th>
                                  <th className="dt-col--optional">Prescription</th>
                                   <th className="dt-col--optional">Results</th>
                                   <th>Patient</th>
+                                  <th className="dt-col--actions"></th>
                                </tr>
                                </thead>
                              <tbody>
@@ -414,8 +430,13 @@ const Doktori = () => {
                       <td className="dt-col--optional">{record.receta}</td>
                       <td className="dt-col--optional">{record.rezultatet}</td>
                       <td>{record.pacienti?.emri || 'Unknown'}</td>
+                      <td>
+                        <div className="dt-row-actions">
+                          <Button variant="outline-danger" size="sm" onClick={() => handleDeleteRecord(record.id_Rek)}>Delete</Button>
+                        </div>
+                      </td>
                     </tr>
-                  )) : <tr><td colSpan="6">No records yet.</td></tr>}
+                  )) : <tr><td colSpan="7">No records yet.</td></tr>}
                 </tbody>
               </Table>
             </Card.Body>
@@ -476,12 +497,12 @@ const Doktori = () => {
                                           <tr>
                                             <th className="dt-col--optional">#</th>
                                             <th className="dt-col--optional">Appointment ID</th>
-                                            <th>Date</th>
-                                            <th>Time</th>
+                                            <th className="dt-col--narrow-date">Date</th>
+                                            <th className="dt-col--narrow-time">Time</th>
                                             <th>Patient</th>
                                             <th className="dt-col--optional">Email</th>
                                             <th className="dt-col--optional">Phone</th>
-                                            <th>Status</th>
+                                            <th className="dt-col--status">Status</th>
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -489,7 +510,7 @@ const Doktori = () => {
                                             <tr key={reservation.reservationId}>
                                               <td className="dt-col--optional">{(reservationsPage - 1) * RESERVATIONS_PAGE_SIZE + index + 1}</td>
                                               <td className="dt-col--optional">{reservation.reservationId}</td>
-                                              <td>{reservation.reservationDate}</td>
+                                              <td>{new Date(reservation.reservationDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}</td>
                                               <td>{reservation.reservationTime}</td>
                                               <td>{[reservation.patientName, reservation.patientSurname].filter(Boolean).join(' ') || 'Unknown'}</td>
                                               <td className="dt-col--optional">{reservation.patientEmail || '—'}</td>
@@ -497,7 +518,7 @@ const Doktori = () => {
                                               <td>
                                                 <Form.Select
                                                   size="sm"
-                                                  style={{ minWidth: '130px' }}
+                                                  style={{ width: '100%' }}
                                                   value={reservation.status}
                                                   onChange={(e) => handleStatusChange(reservation.reservationId, e.target.value)}
                                                 >

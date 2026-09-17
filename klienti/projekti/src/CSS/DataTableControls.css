@@ -127,6 +127,13 @@
     white-space: nowrap;
   }
 
+  /* An in-cell status <select> (e.g. appointment status) needs the same
+     shrink treatment as the row-action buttons so it fits its column. */
+  .table-responsive td .form-select {
+    font-size: 0.72rem;
+    padding: 0.2rem 1.4rem 0.2rem 0.35rem;
+  }
+
   /* Smaller text on the remaining table columns buys back the width the
      hidden columns' neighbours (name, specialization, etc.) need to wrap
      into 2-3 lines instead of forcing a wide single-line column. */
@@ -150,20 +157,55 @@
     word-break: normal;
   }
 
+  /* The base .table thead th styling's 1rem side padding and letter-spacing
+     are sized for a full-width desktop table - both cost real space in a
+     narrow phone column and are why short headers like "DATE"/"TIME" wrap
+     into single letters. */
+  .table-responsive thead th {
+    padding: 0.5rem 0.35rem;
+    letter-spacing: 0.02em;
+  }
+
   /* table-layout: fixed splits width equally among columns with no explicit
      width, which crushes name/specialization-type columns just as much as
-     the "#" and actions columns - mark the narrow ones so the readable
-     columns keep the rest of the space. */
+     the "#", photo and actions columns - mark the narrow ones so the
+     readable columns keep the rest of the space. */
   .dt-col--index {
-    width: 10%;
+    width: 8%;
+  }
+
+  .dt-col--photo {
+    width: 14%;
   }
 
   .dt-col--actions {
-    width: 27%;
+    width: 24%;
+  }
+
+  .dt-col--narrow-date {
+    width: 20%;
+  }
+
+  .dt-col--narrow-time {
+    width: 17%;
+  }
+
+  .dt-col--status {
+    width: 30%;
   }
 }
 
 .dt-row-actions {
   display: flex;
   gap: 6px;
+}
+
+/* A 100x100 photo was always oversized for a table row - this reads as a
+   normal-sized avatar on desktop and still leaves room for the other
+   columns once the table is squeezed down to phone width. */
+.dt-avatar {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 50%;
 }

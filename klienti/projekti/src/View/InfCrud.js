@@ -269,7 +269,7 @@ const InfCrud = () => {
                   <th>Department</th>
                   <th className="dt-col--optional">Position</th>
                   <th className="dt-col--optional">Years of Experience</th>
-                  <th className="dt-col--optional">Photo</th>
+                  <th className="dt-col--photo"></th>
                   <th className="dt-col--actions"></th>
                 </tr>
               </thead>
@@ -283,19 +283,11 @@ const InfCrud = () => {
                     <td className="dt-col--optional">{item.email}</td>
                     <td className="dt-col--optional">{item.numriTel}</td>
                     <td className="dt-col--optional">{item.gjinia}</td>
-                    <td>{item.departamenti}</td>
+                    <td className="dt-col--optional">{item.departamenti}</td>
                     <td className="dt-col--optional">{item.pozita}</td>
                     <td className="dt-col--optional">{item.vitetPune}</td>
-                    <td className="dt-col--optional">
-                      <img
-                        src={item.photoFile}
-                        alt="Nurse"
-                        style={{
-                          width: "100px",
-                          height: "100px",
-                          objectFit: "cover",
-                        }}
-                      />
+                    <td className="dt-col--photo">
+                      <img src={item.photoFile} alt="Nurse" className="dt-avatar" />
                     </td>
                     <td>
                       <div className="dt-row-actions">

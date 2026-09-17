@@ -14,6 +14,7 @@ namespace dizajn_Projekti.Services.Interfaces
         Task<List<RekordModel>> GetDoctorRecords(string userId);
         Task<(List<RekordModel> Items, int TotalCount)> GetPatientRecords(string userId, int page, int pageSize);
         Task AddRecord(RekordModel rekordModel, string userId);
+        Task DeleteDoctorRecord(int id, string userId);
         Task<(List<RekordModel> Items, int TotalCount)> SearchAsync(string? search, int? doctorId, int page, int pageSize);
     }
 }

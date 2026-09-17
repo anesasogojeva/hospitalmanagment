@@ -81,7 +81,21 @@ namespace dizajn_Projekti.Services
             };
             await _rekordRepository.AddAsync(rekord);
         }
-        
+
+        public async Task DeleteDoctorRecord(int id, string userId)
+        {
+            var doctor = await _context.Doktori.FirstOrDefaultAsync(d => d.UserId == userId);
+            if (doctor == null) throw new Exception("Doctor not found");
+
+            var rekord = await _rekordRepository.GetByIdAsync(id);
+            if (rekord == null || rekord.DoctorId != doctor.Id)
+            {
+                throw new KeyNotFoundException("Rekord not found");
+            }
+
+            await _rekordRepository.DeleteAsync(id);
+        }
+
 
         public async Task<IEnumerable<RekordModel>> GetAllRekordsAsync()
         {
