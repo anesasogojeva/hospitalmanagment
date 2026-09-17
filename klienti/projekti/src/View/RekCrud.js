@@ -294,12 +294,12 @@ const RekCrud = () => {
           </div>
         ) : (
           <>
-            <Table responsive striped bordered hover variant="dark">
+            <Table responsive striped bordered hover variant="dark" className="dt-table--cards">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Patient ID</th>
-                  <th>Doctor ID</th>
+                  <th className="dt-col--optional">#</th>
+                  <th>Patient</th>
+                  <th>Doctor</th>
                   <th>Diagnosis</th>
                   <th>Prescription</th>
                   <th>Test Results</th>
@@ -309,15 +309,17 @@ const RekCrud = () => {
               <tbody>
                 {data.map((item, index) => (
                   <tr key={item.id_Rek}>
-                    <td>{(page - 1) * pageSize + index + 1}</td>
-                    <td><Button variant="outline-light" onClick={() => handleShowPaci(item.pacienti)}>{item.pacienti?.emri}</Button></td>
-                    <td><Button variant="outline-light" onClick={() => handleShowDoki(item.doktori)}>{item.doktori?.emri}</Button></td>
-                    <td>{item.diagnoza}</td>
-                    <td>{item.receta}</td>
-                    <td>{item.rezultatet}</td>
+                    <td className="dt-col--optional">{(page - 1) * pageSize + index + 1}</td>
+                    <td data-label="Patient"><Button variant="outline-light" onClick={() => handleShowPaci(item.pacienti)}>{item.pacienti?.emri}</Button></td>
+                    <td data-label="Doctor"><Button variant="outline-light" onClick={() => handleShowDoki(item.doktori)}>{item.doktori?.emri}</Button></td>
+                    <td data-label="Diagnosis">{item.diagnoza}</td>
+                    <td data-label="Prescription">{item.receta}</td>
+                    <td data-label="Test Results">{item.rezultatet}</td>
                     <td>
-                      <Button variant="success" onClick={() => handleEdit(item.id_Rek)}>Edit</Button> &nbsp;
-                      <Button variant="outline-light" onClick={() => handleDelete(item.id_Rek)}>Delete</Button>
+                      <div className="dt-row-actions">
+                        <Button variant="success" onClick={() => handleEdit(item.id_Rek)}>Edit</Button>
+                        <Button variant="outline-light" onClick={() => handleDelete(item.id_Rek)}>Delete</Button>
+                      </div>
                     </td>
                   </tr>
                 ))}

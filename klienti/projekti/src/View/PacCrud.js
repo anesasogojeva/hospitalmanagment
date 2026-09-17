@@ -338,15 +338,15 @@ const PacCrud = () => {
             <Table responsive striped bordered hover variant="dark">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th className="dt-col--index">#</th>
                   <th>Name </th>
                   <th>Surname</th>
-                  <th>Email</th>
-                  <th>Date</th>
-                  <th>Phone</th>
-                  <th>Gender</th>
-                  <th>UserId</th>
-                  <th></th>
+                  <th className="dt-col--optional">Email</th>
+                  <th className="dt-col--optional">Date</th>
+                  <th className="dt-col--optional">Phone</th>
+                  <th className="dt-col--optional">Gender</th>
+                  <th className="dt-col--optional">UserId</th>
+                  <th className="dt-col--actions"></th>
                 </tr>
               </thead>
               <tbody>
@@ -355,24 +355,26 @@ const PacCrud = () => {
                     <td>{(page - 1) * pageSize + index + 1}</td>
                     <td>{item.emri}</td>
                     <td>{item.mbiemri}</td>
-                    <td>{item.email}</td>
-                    <td>{item.dataELindjes}</td>
-                    <td>{item.numriTel}</td>
-                    <td>{item.gjinia}</td>
-                    <td>{item.userId}</td>
+                    <td className="dt-col--optional">{item.email}</td>
+                    <td className="dt-col--optional">{item.dataELindjes}</td>
+                    <td className="dt-col--optional">{item.numriTel}</td>
+                    <td className="dt-col--optional">{item.gjinia}</td>
+                    <td className="dt-col--optional">{item.userId}</td>
                     <td>
-                      <Button
-                        variant="success"
-                        onClick={() => handleEdit(item.id_P)}
-                      >
-                        Edit
-                      </Button>
-                      <Button
-                        variant="outline-light"
-                        onClick={() => handleDelete(item.id_P)}
-                      >
-                        Delete
-                      </Button>
+                      <div className="dt-row-actions">
+                        <Button
+                          variant="success"
+                          onClick={() => handleEdit(item.id_P)}
+                        >
+                          Edit
+                        </Button>
+                        <Button
+                          variant="outline-light"
+                          onClick={() => handleDelete(item.id_P)}
+                        >
+                          Delete
+                        </Button>
+                      </div>
                     </td>
                   </tr>
                 ))}

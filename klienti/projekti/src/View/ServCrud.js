@@ -166,26 +166,28 @@ const ServCrud = () => {
           </div>
         ) : (
           <>
-            <Table responsive striped bordered hover variant="dark" className="mt-4">
+            <Table responsive striped bordered hover variant="dark" className="mt-4 dt-table--cards">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th className="dt-col--optional">#</th>
                   <th>Name</th>
                   <th>Description</th>
                   <th>Photo</th>
-                  <th>Actions</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
                 {data.map((item, index) => (
                   <tr key={item.id_S}>
-                    <td>{(page - 1) * pageSize + index + 1}</td>
-                    <td>{item.emri}</td>
-                    <td>{item.pershkrimi}</td>
-                    <td><img src={item.stafi} alt="service" style={{ width: '100px', height: '100px' }} /></td>
+                    <td className="dt-col--optional">{(page - 1) * pageSize + index + 1}</td>
+                    <td data-label="Name">{item.emri}</td>
+                    <td data-label="Description">{item.pershkrimi}</td>
+                    <td data-label="Photo"><img src={item.stafi} alt="service" className="dt-avatar" /></td>
                     <td>
-                      <Button variant="success" onClick={() => handleEdit(item.id_S)}>Edit</Button>
-                      <Button variant="outline-light" onClick={() => handleDelete(item.id_S)}>Delete</Button>
+                      <div className="dt-row-actions">
+                        <Button variant="success" onClick={() => handleEdit(item.id_S)}>Edit</Button>
+                        <Button variant="outline-light" onClick={() => handleDelete(item.id_S)}>Delete</Button>
+                      </div>
                     </td>
                   </tr>
                 ))}

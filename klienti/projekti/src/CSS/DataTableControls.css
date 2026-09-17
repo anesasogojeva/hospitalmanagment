@@ -194,6 +194,26 @@
     width: 30%;
   }
 
+  /* The admin Reservations table has both Patient and Doctor columns (unlike
+     the doctor/patient dashboards' own appointment tables, which only need
+     one), so the shared narrow-column widths above leave next to nothing
+     for them - give this table its own, tighter budget. */
+  .reservation-admin-table .dt-col--narrow-date {
+    width: 14%;
+  }
+
+  .reservation-admin-table .dt-col--narrow-time {
+    width: 11%;
+  }
+
+  .reservation-admin-table .dt-col--status {
+    width: 18%;
+  }
+
+  .reservation-admin-table .dt-col--actions {
+    width: 22%;
+  }
+
   /* Records hold real sentences (prescription notes, results), not short
      labels - no column width is going to make 4 of those sit side by side
      on a phone. Instead of a grid, stack each row into a labelled card:

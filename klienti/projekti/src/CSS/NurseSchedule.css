@@ -65,4 +65,15 @@
   .nurse-schedule-entry__actions {
     justify-content: flex-end;
   }
+
+  /* DataTableControls.css forces every .table-responsive table to
+     table-layout: fixed with 4 equal columns, which crushes this table's
+     per-day entries (and their Edit/Delete buttons) into far less than the
+     130px above, so cards overlap their neighbours instead of shrinking.
+     This table already scrolls fine within its own .table-responsive box -
+     opt back out of the fixed layout instead of fighting it with widths. */
+  .table-responsive table.nurse-schedule-table {
+    table-layout: auto;
+    width: auto;
+  }
 }

@@ -292,34 +292,35 @@ const ReviewCrud = () => {
           </div>
         ) : (
           <>
-            <Table responsive striped bordered hover variant="dark">
+            <Table responsive striped bordered hover variant="dark" className="dt-table--cards">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th className="dt-col--optional">#</th>
                   <th>Patient Name</th>
                   <th>Review Text</th>
                   <th>Rating</th>
-                  <th>Actions</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
                 {data.map((item, index) => (
                   <tr key={item.id_R}>
-                    <td>{(page - 1) * pageSize + index + 1}</td>
-                    <td>{item.pacienti?.emri || getPatientName(item.id_P)}</td>
-                    <td>{item.reviewText}</td>
-                    <td>{item.rating}</td>
+                    <td className="dt-col--optional">{(page - 1) * pageSize + index + 1}</td>
+                    <td data-label="Patient Name">{item.pacienti?.emri || getPatientName(item.id_P)}</td>
+                    <td data-label="Review Text">{item.reviewText}</td>
+                    <td data-label="Rating">{item.rating}</td>
                     <td>
-                      <Button variant="success" onClick={() => handleEdit(item.id_R)}>
-                        Edit
-                      </Button>{" "}
-                      &nbsp;
-                      <Button
-                        variant="outline-light"
-                        onClick={() => handleDelete(item.id_R)}
-                      >
-                        Delete
-                      </Button>
+                      <div className="dt-row-actions">
+                        <Button variant="success" onClick={() => handleEdit(item.id_R)}>
+                          Edit
+                        </Button>
+                        <Button
+                          variant="outline-light"
+                          onClick={() => handleDelete(item.id_R)}
+                        >
+                          Delete
+                        </Button>
+                      </div>
                     </td>
                   </tr>
                 ))}

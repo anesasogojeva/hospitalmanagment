@@ -226,10 +226,10 @@ const EmergencyCrud = () => {
           </div>
         ) : (
           <>
-            <Table responsive striped bordered hover variant="dark">
+            <Table responsive striped bordered hover variant="dark" className="dt-table--cards">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th className="dt-col--optional">#</th>
                   <th>Subject</th>
                   <th>Description</th>
                   <th>Contact Number</th>
@@ -241,19 +241,21 @@ const EmergencyCrud = () => {
               <tbody>
                 {data.map((item, index) => (
                   <tr key={item.id_E}>
-                    <td>{(page - 1) * pageSize + index + 1}</td>
-                    <td>{item.subject}</td>
-                    <td>{item.pershkrimi}</td>
-                    <td>{item.numriKontaktit}</td>
-                    <td>{item.patientNavigation?.emri || "Unknown"}</td>
-                    <td>{item.doctorNavigation?.emri || "Unknown"}</td>
+                    <td className="dt-col--optional">{(page - 1) * pageSize + index + 1}</td>
+                    <td data-label="Subject">{item.subject}</td>
+                    <td data-label="Description">{item.pershkrimi}</td>
+                    <td data-label="Contact Number">{item.numriKontaktit}</td>
+                    <td data-label="Patient">{item.patientNavigation?.emri || "Unknown"}</td>
+                    <td data-label="Doctor">{item.doctorNavigation?.emri || "Unknown"}</td>
                     <td>
-                      <Button
-                        variant="outline-light"
-                        onClick={() => handleDelete(item.id_E)}
-                      >
-                        Delete
-                      </Button>
+                      <div className="dt-row-actions">
+                        <Button
+                          variant="outline-light"
+                          onClick={() => handleDelete(item.id_E)}
+                        >
+                          Delete
+                        </Button>
+                      </div>
                     </td>
                   </tr>
                 ))}

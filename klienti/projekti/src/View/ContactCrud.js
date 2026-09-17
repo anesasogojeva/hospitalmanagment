@@ -178,30 +178,32 @@ const ContactCRUD = () => {
           </div>
         ) : (
           <>
-            <Table responsive striped bordered hover variant="dark">
+            <Table responsive striped bordered hover variant="dark" className="dt-table--cards">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th className="dt-col--optional">#</th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Message</th>
-                  <th>Action</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
                 {data.map((item, index) => (
                   <tr key={item.contactId}>
-                    <td>{(page - 1) * pageSize + index + 1}</td>
-                    <td>{item.name}</td>
-                    <td>{item.email}</td>
-                    <td>{item.message}</td>
+                    <td className="dt-col--optional">{(page - 1) * pageSize + index + 1}</td>
+                    <td data-label="Name">{item.name}</td>
+                    <td data-label="Email">{item.email}</td>
+                    <td data-label="Message">{item.message}</td>
                     <td>
-                      <Button
-                        variant="outline-light"
-                        onClick={() => handleDelete(item.contactId)}
-                      >
-                        Delete
-                      </Button>
+                      <div className="dt-row-actions">
+                        <Button
+                          variant="outline-light"
+                          onClick={() => handleDelete(item.contactId)}
+                        >
+                          Delete
+                        </Button>
+                      </div>
                     </td>
                   </tr>
                 ))}

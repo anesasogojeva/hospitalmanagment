@@ -325,30 +325,30 @@ const ReservationCrud = () => {
           </div>
         ) : (
           <>
-            <Table responsive striped bordered hover variant="dark">
+            <Table responsive striped bordered hover variant="dark" className="reservation-admin-table">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Appointment Date</th>
-                  <th>Appointment Time</th>
-                  <th>Patient ID</th>
-                  <th>Doctor ID</th>
-                  <th>Status</th>
-                  <th></th>
+                  <th className="dt-col--optional">#</th>
+                  <th className="dt-col--narrow-date">Date</th>
+                  <th className="dt-col--narrow-time">Time</th>
+                  <th>Patient</th>
+                  <th>Doctor</th>
+                  <th className="dt-col--status">Status</th>
+                  <th className="dt-col--actions"></th>
                 </tr>
               </thead>
               <tbody>
                 {data.map((item, index) => (
                   <tr key={item.reservationId}>
-                    <td>{(page - 1) * pageSize + index + 1}</td>
-                    <td>{item.reservationDate}</td>
+                    <td className="dt-col--optional">{(page - 1) * pageSize + index + 1}</td>
+                    <td>{new Date(item.reservationDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}</td>
                     <td>{item.reservationTime}</td>
                     <td><Button variant="outline-light" onClick={() => handleShowPaci(item.patientNavigation)}>{item.patientNavigation?.emri}</Button></td>
                     <td><Button variant="outline-light" onClick={() => handleShowDoki(item.doctorNavigation)}>{item.doctorNavigation?.emri}</Button></td>
                     <td>
                       <Form.Select
                         size="sm"
-                        style={{ minWidth: '130px' }}
+                        style={{ width: '100%' }}
                         value={item.status}
                         onChange={(e) => handleStatusChange(item.reservationId, e.target.value)}
                       >
@@ -358,8 +358,10 @@ const ReservationCrud = () => {
                       </Form.Select>
                     </td>
                     <td>
-                      <Button variant="success" onClick={() => handleEdit(item.reservationId)}>Edit</Button> &nbsp;
-                      <Button variant="outline-light" onClick={() => handleDelete(item.reservationId)}>Delete</Button>
+                      <div className="dt-row-actions">
+                        <Button variant="success" onClick={() => handleEdit(item.reservationId)}>Edit</Button>
+                        <Button variant="outline-light" onClick={() => handleDelete(item.reservationId)}>Delete</Button>
+                      </div>
                     </td>
                   </tr>
                 ))}
